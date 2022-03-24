@@ -9,3 +9,8 @@ It contains *solution* for Visual Studio Community 2022.
 `BasicC2TBD` - skeleton of C2 implant with missing:
   - `exec()` function to get cmd.exe execution
   - `persistence()` function to achieve persistance via Schkeduled Tasks
+
+## Server side
+- Since this implant only uses basic socket communication, basic ncat listener is enough.
+- Ncat can be installed from (together with nmap): https://nmap.org/download
+- Command to start listener: `ncat -nvlp 8080`

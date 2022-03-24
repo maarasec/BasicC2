@@ -1,7 +1,7 @@
 # BasicC2
 This is repository to backup basic C2 malware.
 
-It contains *solution* for Visual Studio Community 2022.
+It contains *solution* for Visual Studio Community 2022 (with C++ development module).
 
 ## Folder structure
 `BasicC2` - complete C2 implant

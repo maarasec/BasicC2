@@ -13,4 +13,4 @@ It contains *solution* for Visual Studio Community 2022 (with C++ development mo
 ## Server side
 - Since this implant only uses basic socket communication, basic ncat listener is enough.
 - Ncat can be installed from (together with nmap): https://nmap.org/download
-- Command to start listener: `ncat -nvlp 8080`
+- Command to start listener: `ncat.exe -nvlp 8080`

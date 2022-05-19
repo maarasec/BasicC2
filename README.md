@@ -12,10 +12,10 @@ It contains *solution* for Visual Studio Community 2022 (with C++ development mo
 6. Click on "Local Windows Debugger" and it lives! :)
 
 ## Folder structure
-`BasicC2-STEP1` - intial state - basic functionality works, you need to fill in some functionality to get to `BasicC2-STEP2`
-`BasicC2-STEP2` - final state to get to from `BasicC2-STEP1`
-`BasicC2-STEP3` - second initial state - you need to fill in some functionality to get to `BasicC2-STEP4`
-`BasicC2-STEP4` - final state to get to from `BasicC2-STEP3`
+- `BasicC2-STEP1` - intial state - basic functionality works, you need to fill in some functionality to get to `BasicC2-STEP2`
+- `BasicC2-STEP2` - final state to get to from `BasicC2-STEP1`
+- `BasicC2-STEP3` - second initial state - you need to fill in some functionality to get to `BasicC2-STEP4`
+- `BasicC2-STEP4` - final state to get to from `BasicC2-STEP3`
 
 ## Tasks
 ### To get from `BasicC2-STEP1` to `BasicC2-STEP2`

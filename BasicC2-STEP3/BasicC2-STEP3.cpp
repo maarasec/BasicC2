@@ -258,9 +258,8 @@ string utilShowCredentialsPrompt()
     string cmdOut;
     ofstream out(tmpFilePath);
 
-    out << "TBD: powershell GUI credentails capture line 1" << endl;
-    out << "TBD: powershell GUI credentails capture line 2" << endl;
-    out << "..." << endl;
+    out << "Add-Type -AssemblyName PresentationFramework;" << endl;
+    out << "[System.Windows.MessageBox]::Show(\"TBD: powershell GUI credentails capture\")" << endl;
 
     out.close();
 

